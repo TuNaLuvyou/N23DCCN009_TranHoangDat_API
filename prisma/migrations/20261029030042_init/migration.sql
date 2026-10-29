@@ -1,0 +1,27 @@
+BEGIN TRY
+
+BEGIN TRAN;
+
+-- CreateTable
+CREATE TABLE [dbo].[SinhVien] (
+    [MaSV] NVARCHAR(10) NOT NULL,
+    [HoTen] NVARCHAR(50),
+    [Email] NVARCHAR(250),
+    [DiaChi] NVARCHAR(500),
+    [Lop] NVARCHAR(50),
+    [HinhAnh] NVARCHAR(500),
+    CONSTRAINT [SinhVien_pkey] PRIMARY KEY CLUSTERED ([MaSV])
+);
+
+COMMIT TRAN;
+
+END TRY
+BEGIN CATCH
+
+IF @@TRANCOUNT > 0
+BEGIN
+    ROLLBACK TRAN;
+END;
+THROW
+
+END CATCH

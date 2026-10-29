@@ -1,0 +1,1 @@
+/* NOTE: chưa có tính năng đăng nhập và phân quyền */

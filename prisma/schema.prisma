@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+/// Bảng SinhVien - giữ nguyên tên bảng/cột như CSDL QLSV01 gốc
+model SinhVien {
+  maSV    String  @id @map("MaSV") @db.NVarChar(10)
+  hoTen   String? @map("HoTen") @db.NVarChar(50)
+  email   String? @map("Email") @db.NVarChar(250)
+  diaChi  String? @map("DiaChi") @db.NVarChar(500)
+  lop     String? @map("Lop") @db.NVarChar(50)
+  hinhAnh String? @map("HinhAnh") @db.NVarChar(500)
+
+  @@map("SinhVien")
+}
